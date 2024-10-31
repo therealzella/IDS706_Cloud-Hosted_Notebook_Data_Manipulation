@@ -35,4 +35,4 @@ jobs:
 
     - name: Run Jupyter Notebook
       run: |
-        jupyter nbconvert --execute --inplace --to notebook <your_notebook_name>.ipynb
+        jupyter nbconvert --execute --inplace --to notebook Cloud-Hosted_Notebook_Data_Manipulation.ipynb
