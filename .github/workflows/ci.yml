@@ -33,6 +33,19 @@ jobs:
         pip install pytest
         pytest
 
-    - name: Run Jupyter Notebook
+    - name: Install dependencies
       run: |
-        jupyter nbconvert --execute --inplace --to notebook Cloud-Hosted_Notebook_Data_Manipulation.ipynb
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install jupytext
+
+    - name: Convert Notebook to Python Script
+      run: |
+        jupytext --to py Cloud-Hosted_Notebook_Data_Manipulation.ipynb
+
+    - name: Execute Notebook as Python Script
+      run: |
+        python Cloud-Hosted_Notebook_Data_Manipulation.py
+
+
+
