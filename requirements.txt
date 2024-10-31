@@ -7,3 +7,7 @@ pylint == 2.15.3       ## for linting Python code (used in the lint target)
 
 # web
 fastapi == 0.85.0      ## web framework (if relevant to project)
+
+jupyter
+nbconvert
+flake8
