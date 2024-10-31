@@ -12,3 +12,4 @@ jupytext
 flake8
 pandas
 numpy
+matplotlib
