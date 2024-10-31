@@ -7,45 +7,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Check out the code from the repository
     - uses: actions/checkout@v3
       
+    # Step 2: Set up Python environment
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
         python-version: '3.x'
 
+    # Step 3: Install all required dependencies in one place
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install nbconvert  # Add nbconvert for notebook execution
+        pip install flake8 pytest jupytext  # Add jupytext for notebook conversion
 
+    # Step 4: Lint with flake8
     - name: Lint with flake8
       run: |
-        pip install flake8
         # Stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
+    # Step 5: Test with pytest
     - name: Test with pytest
-      run: |
-        pip install pytest
-        pytest
+      run: pytest
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install jupytext
-
+    # Step 6: Convert Notebook to Python Script using Jupytext
     - name: Convert Notebook to Python Script
       run: |
         jupytext --to py Cloud-Hosted_Notebook_Data_Manipulation.ipynb
 
+    # Step 7: Execute the converted Python script
     - name: Execute Notebook as Python Script
-      run: |
-        python Cloud-Hosted_Notebook_Data_Manipulation.py
-
-
-
+      run: python Cloud-Hosted_Notebook_Data_Manipulation.py
