@@ -38,7 +38,7 @@ jobs:
     # Step 6: Convert Notebook to Python Script using Jupytext
     - name: Convert Notebook to Python Script
       run: |
-        jupytext --to py Cloud-Hosted_Notebook_Data_Manipulation.ipynb
+        jupytext --to py Cloud_Hosted_Notebook_Data_Manipulation.ipynb
 
     # Step 7: Execute the converted Python script
     - name: Execute Notebook as Python Script
