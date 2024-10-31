@@ -5,6 +5,8 @@ This project showcases data manipulation techniques on a dataset of various cere
 
 This project also includes a CI/CD pipeline set up with GitHub Actions for code quality checks and automated testing, ensuring that all scripts are error-free and conform to Python standards.
 
+- [Cloud-Hosted Notebook Documentation](https://github.com/therealzella/IDS706_Cloud-Hosted_Notebook_Data_Manipulation/blob/main/Documentation_For_Notebook.pdf)
+
 ## Dataset
 The dataset (`cereal.csv`) contains information about various cereal brands, including attributes like:
 - **Calories**: The calorie content per serving.
